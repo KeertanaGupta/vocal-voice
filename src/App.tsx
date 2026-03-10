@@ -6,7 +6,12 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { AppLayout } from "@/components/AppLayout";
 import Index from "./pages/Index";
 import Complaints from "./pages/Complaints";
+import Assignments from "./pages/Assignments";
+import Departments from "./pages/Departments";
+import SLAMonitor from "./pages/SLAMonitor";
 import Analytics from "./pages/Analytics";
+import Notifications from "./pages/Notifications";
+import SettingsPage from "./pages/Settings";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -21,12 +26,12 @@ const App = () => (
           <Routes>
             <Route path="/" element={<Index />} />
             <Route path="/complaints" element={<Complaints />} />
+            <Route path="/assignments" element={<Assignments />} />
+            <Route path="/departments" element={<Departments />} />
+            <Route path="/sla" element={<SLAMonitor />} />
             <Route path="/analytics" element={<Analytics />} />
-            <Route path="/assignments" element={<PlaceholderPage title="Assignments" />} />
-            <Route path="/departments" element={<PlaceholderPage title="Departments" />} />
-            <Route path="/sla" element={<PlaceholderPage title="SLA Monitor" />} />
-            <Route path="/notifications" element={<PlaceholderPage title="Notifications" />} />
-            <Route path="/settings" element={<PlaceholderPage title="Settings" />} />
+            <Route path="/notifications" element={<Notifications />} />
+            <Route path="/settings" element={<SettingsPage />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </AppLayout>
@@ -34,16 +39,5 @@ const App = () => (
     </TooltipProvider>
   </QueryClientProvider>
 );
-
-function PlaceholderPage({ title }: { title: string }) {
-  return (
-    <div className="flex h-[calc(100vh-2rem)] items-center justify-center p-6">
-      <div className="text-center space-y-2">
-        <h1 className="text-lg font-semibold text-foreground">{title}</h1>
-        <p className="text-xs text-muted-foreground font-mono">Module under development</p>
-      </div>
-    </div>
-  );
-}
 
 export default App;
