@@ -141,6 +141,25 @@ export const mockDepartments: Department[] = [
   { id: "5", name: "Urban Planning", totalComplaints: 98, resolved: 72, pending: 26, avgResolutionHours: 72, slaCompliance: 65 },
 ];
 
+export const mockAssignments = [
+  { id: "ASG-001", complaintId: "GRV-2024-001", officer: "Amit Sharma", department: "Water Department", assignedAt: "2024-03-12T10:00:00Z", status: "Active", slaDeadline: "2024-03-15T14:00:00Z", priority: "Critical" as const },
+  { id: "ASG-002", complaintId: "GRV-2024-002", officer: "Vikram Singh", department: "PWD", assignedAt: "2024-03-13T14:30:00Z", status: "Active", slaDeadline: "2024-03-16T18:00:00Z", priority: "High" as const },
+  { id: "ASG-003", complaintId: "GRV-2024-003", officer: "Ramesh Yadav", department: "Sanitation", assignedAt: "2024-03-14T08:00:00Z", status: "Active", slaDeadline: "2024-03-17T12:00:00Z", priority: "Medium" as const },
+  { id: "ASG-004", complaintId: "GRV-2024-005", officer: "Deepak Verma", department: "Urban Planning", assignedAt: "2024-03-11T12:00:00Z", status: "Active", slaDeadline: "2024-03-18T12:00:00Z", priority: "High" as const },
+  { id: "ASG-005", complaintId: "GRV-2024-006", officer: "Suresh Pandey", department: "Water Department", assignedAt: "2024-03-13T09:00:00Z", status: "Escalated", slaDeadline: "2024-03-14T18:00:00Z", priority: "Critical" as const },
+];
+
+export const mockNotifications = [
+  { id: "N-001", type: "escalation" as const, title: "SLA Breach - GRV-2024-006", message: "Complaint GRV-2024-006 has breached SLA deadline. Escalated to Level 3.", timestamp: "2024-03-14T18:01:00Z", read: false },
+  { id: "N-002", type: "warning" as const, title: "SLA Warning - GRV-2024-001", message: "Complaint GRV-2024-001 is approaching SLA deadline. 3 hours remaining.", timestamp: "2024-03-15T11:00:00Z", read: false },
+  { id: "N-003", type: "assignment" as const, title: "New Assignment", message: "Complaint GRV-2024-003 has been assigned to Ramesh Yadav.", timestamp: "2024-03-14T08:00:00Z", read: true },
+  { id: "N-004", type: "resolution" as const, title: "Complaint Resolved", message: "Complaint GRV-2024-007 has been marked as resolved by Vikram Singh.", timestamp: "2024-03-14T06:30:00Z", read: true },
+  { id: "N-005", type: "system" as const, title: "System Maintenance", message: "Scheduled maintenance on March 20, 2024 from 02:00 to 04:00 IST.", timestamp: "2024-03-13T12:00:00Z", read: true },
+  { id: "N-006", type: "escalation" as const, title: "Auto-Escalation Triggered", message: "GRV-2024-001 escalated to Level 2 due to no officer response within 24h.", timestamp: "2024-03-14T10:00:00Z", read: false },
+  { id: "N-007", type: "assignment" as const, title: "Officer Reassigned", message: "GRV-2024-005 reassigned from Ravi to Deepak Verma per supervisor request.", timestamp: "2024-03-12T14:00:00Z", read: true },
+  { id: "N-008", type: "warning" as const, title: "High Volume Alert", message: "Water Department has received 15 complaints today, exceeding daily average by 200%.", timestamp: "2024-03-14T15:00:00Z", read: false },
+];
+
 export const complaintActivityData = [
   { date: "Mon", filed: 24, resolved: 18 },
   { date: "Tue", filed: 31, resolved: 22 },
